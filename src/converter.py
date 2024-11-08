@@ -30,3 +30,8 @@ from docx import Document
 # adding text, images, and shapes to the PDF, setting fonts and styles, creating multi-page documents,
 # and more. It provides a convenient way to create custom PDF documents from within your Python code.
 from fpdf import FPDF
+
+# This line of code `pytesseract.pytesseract.tesseract_cmd = r'C:\Program
+# Files\Tesseract-OCR\tesseract.exe'` is setting the path to the Tesseract executable file on your
+# system.
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
