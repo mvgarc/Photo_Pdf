@@ -70,4 +70,8 @@ def batch_convert_images_to_docs(image_folder, output_folder):
             image_path = os.path.join(image_folder,filename)
             base_filename = os.path.splitext(filename)[0]
             text = convert_image_to_text(image_path)
-            
+            word_path = os.path.join(output_folder, f"{base_filename}.docx")
+            save_to_word(text, word_path)
+            pdf_path = os.path.join(output_folder, f"{base_filename}.pdf")
+            save_to_pdf(text, pdf_path)
+            print(f"Convertido: {filename} a Word y PDF")
