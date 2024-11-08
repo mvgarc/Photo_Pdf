@@ -67,3 +67,7 @@ def batch_convert_images_to_docs(image_folder, output_folder):
     os.makedirs(output_folder, exist_ok=True)
     for filename in os.listdir(image_folder):
         if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp')):
+            image_path = os.path.join(image_folder,filename)
+            base_filename = os.path.splitext(filename)[0]
+            text = convert_image_to_text(image_path)
+            
