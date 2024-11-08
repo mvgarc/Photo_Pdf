@@ -35,3 +35,18 @@ from fpdf import FPDF
 # Files\Tesseract-OCR\tesseract.exe'` is setting the path to the Tesseract executable file on your
 # system.
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
+def convert_image_to_text(image_path):
+    """
+    The function `convert_image_to_text` takes an image file path as input, uses pytesseract to extract
+    text from the image, and returns the extracted text.
+    
+    :param image_path: The `image_path` parameter in the `convert_image_to_text` function is a string
+    that represents the file path to the image file that you want to convert to text. This function uses
+    pytesseract library to perform optical character recognition (OCR) on the image and extract the text
+    content from it
+    :return: The function `convert_image_to_text` returns the text extracted from the image located at
+    the specified `image_path`.
+    """
+    text = pytesseract.image_to_string(Image.open(image_path))
+    return text
