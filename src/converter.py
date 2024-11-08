@@ -50,3 +50,8 @@ def convert_image_to_text(image_path):
     """
     text = pytesseract.image_to_string(Image.open(image_path))
     return text
+
+def save_to_word(text, output_path):
+    doc = Document()
+    doc.add_paragraph(text)
+    doc.save(output_path)
