@@ -76,8 +76,9 @@ def save_to_pdf(text, output_path):
     the generated PDF file will be saved. It should be a string representing the full path including the
     file name and extension (e.g., "C:/Documents/output.pdf")
     """
-    pdf = FPDF
+    pdf = FPDF()
     pdf.add_page()
+    pdf.set_auto_page_break(auto=True, margin=15)
     pdf.set_font("Arial", size=12)
     pdf.multi_cell(0,10, text)
     pdf.output(output_path)
