@@ -52,11 +52,30 @@ def convert_image_to_text(image_path):
     return text
 
 def save_to_word(text, output_path):
+    """
+    The function `save_to_word` saves the input text to a Word document at the specified output path.
+    
+    :param text: The `text` parameter in the `save_to_word` function is the content that you want to
+    save to a Word document. This content will be added as a paragraph in the Word document
+    :param output_path: The `output_path` parameter in the `save_to_word` function is the file path
+    where you want to save the Word document. You should provide the full file path including the file
+    name and extension (e.g., "C:/Documents/output.docx")
+    """
     doc = Document()
     doc.add_paragraph(text)
     doc.save(output_path)
 
 def save_to_pdf(text, output_path):
+    """
+    The function `save_to_pdf` takes a text input and saves it as a PDF file at the specified output
+    path.
+    
+    :param text: The `text` parameter in the `save_to_pdf` function is the content that you want to save
+    to a PDF file. This content will be written to the PDF file specified by the `output_path` parameter
+    :param output_path: The `output_path` parameter in the `save_to_pdf` function is the file path where
+    the generated PDF file will be saved. It should be a string representing the full path including the
+    file name and extension (e.g., "C:/Documents/output.pdf")
+    """
     pdf = FPDF
     pdf.add_page()
     pdf.set_font("Arial", size=12)
@@ -64,6 +83,17 @@ def save_to_pdf(text, output_path):
     pdf.output(output_path)
 
 def batch_convert_images_to_docs(image_folder, output_folder):
+    """
+    The function `batch_convert_images_to_docs` converts images in a specified folder to text, saves the
+    text to Word and PDF files in an output folder, and prints a message for each conversion.
+    
+    :param image_folder: The `image_folder` parameter in the `batch_convert_images_to_docs` function
+    refers to the directory path where the input images are located. This function is designed to batch
+    convert images in this folder to both Word (.docx) and PDF formats
+    :param output_folder: The `output_folder` parameter in the `batch_convert_images_to_docs` function
+    is the directory where the converted Word (.docx) and PDF files will be saved. This function creates
+    the output folder if it doesn't already exist and saves the converted files in that location
+    """
     os.makedirs(output_folder, exist_ok=True)
     for filename in os.listdir(image_folder):
         if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp')):
@@ -75,3 +105,7 @@ def batch_convert_images_to_docs(image_folder, output_folder):
             pdf_path = os.path.join(output_folder, f"{base_filename}.pdf")
             save_to_pdf(text, pdf_path)
             print(f"Convertido: {filename} a Word y PDF")
+
+script_dir = os.path.dirname(os.path.abspath(__file__))
+input_folder = os.path.join(script_dir, "..", "assets", "input_images")
+input_folder = os.path.abspath(input_folder)
