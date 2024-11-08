@@ -65,3 +65,5 @@ def save_to_pdf(text, output_path):
 
 def batch_convert_images_to_docs(image_folder, output_folder):
     os.makedirs(output_folder, exist_ok=True)
+    for filename in os.listdir(image_folder):
+        if filename.lower().endswith(('.png', '.jpg', '.jpeg', '.bmp')):
