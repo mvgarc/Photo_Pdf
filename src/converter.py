@@ -24,3 +24,9 @@ import pytesseract
 # code. This can include tasks such as creating new documents, modifying existing documents,
 # extracting text, formatting, adding tables, images, and more.
 from docx import Document
+# `from fpdf import FPDF` is a Python statement that imports the `FPDF` class from the `fpdf` module.
+# FPDF is a popular library for creating PDF documents in Python. By importing the `FPDF` class, you
+# can utilize its functionality to generate PDF files programmatically. This includes tasks such as
+# adding text, images, and shapes to the PDF, setting fonts and styles, creating multi-page documents,
+# and more. It provides a convenient way to create custom PDF documents from within your Python code.
+from fpdf import FPDF
