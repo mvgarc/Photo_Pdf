@@ -55,3 +55,10 @@ def save_to_word(text, output_path):
     doc = Document()
     doc.add_paragraph(text)
     doc.save(output_path)
+
+def save_to_pdf(text, output_path):
+    pdf = FPDF
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+    pdf.multi_cell(0,10, text)
+    pdf.output(output_path)
