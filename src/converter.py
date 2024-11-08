@@ -65,6 +65,12 @@ def save_to_word(text, output_path):
     doc.add_paragraph(text)
     doc.save(output_path)
 
+def clean_text_for_pdf(text):
+    text = text.replace("“", "\"").replace("”", "\"")
+    text = text.replace("‘", "'").replace("’", "'")
+    text = text.replace("—", "-")
+    return text
+
 def save_to_pdf(text, output_path):
     """
     The function `save_to_pdf` takes a text input and saves it as a PDF file at the specified output
@@ -80,7 +86,8 @@ def save_to_pdf(text, output_path):
     pdf.add_page()
     pdf.set_auto_page_break(auto=True, margin=15)
     pdf.set_font("Arial", size=12)
-    pdf.multi_cell(0,10, text)
+    cleaned_text = clean_text_for_pdf(text)
+    pdf.multi_cell(0,10, cleaned_text)
     pdf.output(output_path)
 
 def batch_convert_images_to_docs(image_folder, output_folder):
