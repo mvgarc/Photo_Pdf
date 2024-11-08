@@ -109,3 +109,7 @@ def batch_convert_images_to_docs(image_folder, output_folder):
 script_dir = os.path.dirname(os.path.abspath(__file__))
 input_folder = os.path.join(script_dir, "..", "assets", "input_images")
 input_folder = os.path.abspath(input_folder)
+
+output_folder = os.path.join(script_dir, "..", "assets", "output_files")
+output_folder = os.path.abspath(output_folder)
+batch_convert_images_to_docs(input_folder, output_folder)
