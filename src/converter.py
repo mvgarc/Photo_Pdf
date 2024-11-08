@@ -62,3 +62,6 @@ def save_to_pdf(text, output_path):
     pdf.set_font("Arial", size=12)
     pdf.multi_cell(0,10, text)
     pdf.output(output_path)
+
+def batch_convert_images_to_docs(image_folder, output_folder):
+    os.makedirs(output_folder, exist_ok=True)
